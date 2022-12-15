@@ -148,6 +148,7 @@ def upload_youtube_video(youtube, options, video_path, total_videos, index):
             "privacyStatus": ("private" if options.publish_at else options.privacy),
             "publishAt": options.publish_at,
             "license": options.license,
+            "selfDeclaredMadeForKids": options.made_for_kids,
 
         },
         "recordingDetails": {
@@ -258,6 +259,8 @@ def main(arguments):
                       help='Template for multiple videos (default: {title} [{n}/{total}])')
     parser.add_option('', '--embeddable', dest='embeddable', default=True,
                       help='Video is embeddable')
+    parser.add_option('', '--made-for-kids', dest='made_for_kids', default=False,
+                      help='Video is made for kids')
 
     # Authentication
     parser.add_option('', '--client-secrets', dest='client_secrets',
